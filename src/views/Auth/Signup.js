@@ -6,13 +6,9 @@ import { TiTick } from "react-icons/ti";
 import { ToastContainer, toast } from "react-toastify";
 import { CgProfile } from "react-icons/cg";
 import { AiFillCreditCard } from "react-icons/ai";
-
-import { Fragment } from 'react'
-import { Menu } from '@headlessui/react'
 import "react-toastify/dist/ReactToastify.css";
 import { login, toastReset, setRole } from "../../store/slices/auth/authSlice";
 import axios from "axios";
-import { IndexDropdown, KanbanCardPopup, TableDropdown, UserDropdown } from "../../components";
 let alphabets = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz";
 let first = alphabets[Math.floor(Math.random() * alphabets.length)];
 let second = Math.floor(Math.random() * 10);
@@ -35,7 +31,6 @@ export default function Signup() {
     password: "",
   });
 
-  const [roleUser,setRoleUser] = useState("user");
   const [pan, setPan] = useState(false);
   const panNumber = useRef(null);
   const verify = (event) => {
@@ -153,43 +148,6 @@ export default function Signup() {
     setFile(event.target.files[0]);
   }
 
-
-  const links = [
-    { href: '/account-settings', label: 'Account settings' },
-    { href: '/support', label: 'Support' },
-    { href: '/license', label: 'License' },
-    { href: '/sign-out', label: 'Sign out' },
-  ]
-
-  const MyMenu = () => {
-    return (
-      <Menu>
-        <Menu.Button>Options</Menu.Button>
-        <Menu.Items>
-        <ul>
-          {links.map((link) => (
-            /* Use the `active` state to conditionally style the active item. */
-            <Menu.Item key={link.href} as={Fragment}>
-              {({ active }) => (
-               <li>
-                <a
-                  href={link.href}
-                  className={`${active ? 'bg-blue-500 text-white ' : 'bg-white  text-slate-500 text-xs font-semibold mb-2 flex items-center'
-                    }`}
-                >
-                  {link.label}
-                </a>
-                </li>
-              )}
-            </Menu.Item>
-
-          ))}
-          </ul>
-        </Menu.Items>
-      </Menu>
-    )
-  }
-
   return (
     <form className="max-w-sm bg-white px-8 py-7 rounded-2xl shadow-xl w-full">
       <h2 className="text-2xl mb-6 font-normal text-slate-500">
@@ -251,7 +209,6 @@ export default function Signup() {
           required
         />
       </div>
-      <MyMenu />
       <div className="flex">
         <div className="relative w-full mb-3">
           <label
@@ -293,7 +250,7 @@ export default function Signup() {
           </button>
           :
           <button
-            disabled
+           disabled
             className="bg-slate-300 flex items-center justify-center text-white active:bg-blueGray-600 text-lg font-base px-6 py-2 rounded-xl shadow outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
           >
             <HiOutlineLogin className="mr-2 h-6 w-6" />

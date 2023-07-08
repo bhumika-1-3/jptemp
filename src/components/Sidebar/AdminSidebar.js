@@ -67,14 +67,15 @@ export default function Sidebar() {
             style={{
               fontFamily: "Roxierossa",
               display: "flex",
-              justifyContent: "center",
+              justifyContent: "space-around",
               alignItems: "center",
             }}
-            className="md:mt-4 md:block inline-block text-left text-purple_1 dark:border-purple-700 dark:text-slate-200 mr-0 whitespace-nowrap text-xl font-semibold"
+            className="md:mt-4 md:ml-3 md:block inline-block text-left text-purple_1 dark:border-purple-700 dark:text-slate-200 ml-2  mr-0 whitespace-nowrap text-xl font-semibold"
             to="/dashboard/">
+            JEET
             <img
               src="https://static.wixstatic.com/media/61a490_f032997414ae410ca1c6154b51c1e6b0~mv2.png/v1/crop/x_0,y_8,w_649,h_680/fill/w_89,h_94,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/JEETfinalLOGO.png"
-              style={{ height: "50px", width: "50px" }}
+              style={{ height: "50px", width: "50px" , margin: "0 0 0 20px"}}
             />
           </Link>
 
