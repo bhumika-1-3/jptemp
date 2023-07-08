@@ -1,26 +1,16 @@
-const jwt = require("jsonwebtoken")
-require("dotenv").config();
+import jwt from "jsonwebtoken";
+import { createError } from "./error.js";
+
+export const verifyToken = (req, res, next) => {
+  const token = req.cookies.access_token;
+  if (!token) return next(createError(401, "You are not authenticated!"));
+
+  jwt.verify(token, process.env.JWT, (err, user) => {
+    if (err) return next(createError(403, "Token is not valid!"));
+    req.user = user;
+    next()
+  });
+};
 
 
-const verifyJWT = (req, res, next) => {
-    const authHeader = req.headers["authorization"];
-    if (!authHeader) return res.sendStatus(401);
-    console.log(authHeader);
-
-    const token = authHeader.split(' ')[1];
-
-    jwt.verify(
-        token,
-        process.env.ACCESS_TOKEN
-        ,
-        (err, decoded) => {
-            // invalid token
-            if (err) return res.sendStatus(403);
-
-            req.user = decoded.username;
-            next();
-        })
-}
-
-
-module.exports = verifyJWT;
+export default verifyToken;

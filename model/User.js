@@ -1,31 +1,36 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+import mongoose from "mongoose";
 
-
-const userSchema = new Schema({
-
-    ewsid: {
-        type: String,
-    },
-    schoolname: {
-        type: String,
-    },
-    password: {
-        type: String,
-        required: true,
+const UserSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+      unique: true,
     },
     email: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
+      unique: true,
     },
-    role: {
-        type: String,
-        required: true,
+    password: {
+      type: String,
     },
+    img: {
+      type: String,
+    },
+    subscribers: {
+      type: Number,
+      default: 0,
+    },
+    subscribedUsers: {
+      type: [String],
+    },
+    fromGoogle: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  { timestamps: true }
+);
 
-
-    refreshToken: String
-
-});
-
-module.exports = mongoose.model("User", userSchema)
+export default mongoose.model("User", UserSchema);

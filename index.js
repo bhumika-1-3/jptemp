@@ -1,36 +1,36 @@
-const express = require("express");
-const cookieParser = require("cookie-parser");
-const mongoose = require("mongoose");
-const cors = require("cors");
-const corsOption = require("./config/corsOption");
-const connectDB = require("./config/dbConnect");
+import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import userRoutes from "./routes/users.js";
+import videoRoutes from "./routes/videos.js";
+import commentRoutes from "./routes/comments.js";
+import authRoutes from "./routes/auth.js";
+import cookieParser from "cookie-parser";
+import connect from "./config/dbConnect.js";
 
-const PORT = process.env.PORT || 3500;
 const app = express();
+dotenv.config();
 
-// connect to mongo
-connectDB();
-app.use("/public",express.static("public"));
-app.use(cors());
-app.use(express.urlencoded({ extended: false }));
+//middlewares
+app.use(cookieParser())
 app.use(express.json());
-app.use(cookieParser());
+app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/videos", videoRoutes);
+app.use("/api/comments", commentRoutes);
 
-app.get("/",(req,res)=>{
-    res.send("Welcome");
-})
+//error handler
+app.use((err, req, res, next) => {
+  const status = err.status || 500;
+  const message = err.message || "Something went wrong!";
+  return res.status(status).json({
+    success: false,
+    status,
+    message,
+  });
+});
 
-app.get("/payment/getkey",(req,res)=>{
-    res.status(200).json({key : process.env.KEY_ID})
-})
-// apis
-app.use("/register", require("./routes/register"));
-app.use("/login", require("./routes/login"));
-app.use("/todo",require("./routes/todo"));
-app.use("/forgotpw",require("./routes/passwordReset"));
-app.use("/payment",require("./routes/razorpay"));
-
-mongoose.connection.once("open", () => {
-    console.log("connected db");
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(8000, () => {
+  connect();
+  console.log("Connected to Server");
 });
