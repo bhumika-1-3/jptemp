@@ -113,6 +113,17 @@ export const getByTag = async (req, res, next) => {
   }
 };
 
+export const getByLanguage = async (req, res, next) => {
+  const langs = req.query.langs.split(",");
+  try {
+    const videos = await Video.find({ lang: { $in: langs } }).limit(20);
+    res.status(200).json(videos);
+  } catch (err) {
+    next(err);
+  }
+};
+
+
 export const search = async (req, res, next) => {
   const query = req.query.q;
   try {

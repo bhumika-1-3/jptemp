@@ -1,5 +1,5 @@
 import express from "express";
-import { addVideo, updateVideo, deleteVideo, addView, getByTag, getVideo, random, search, sub, trend } from "../controllers/video.js";
+import { addVideo, updateVideo, deleteVideo, addView, getByTag, getByLanguage, getVideo, random, search, sub, trend } from "../controllers/video.js";
 import verifyToken from "../middleware/verifyJWT.js";
 
 const router = express.Router();
@@ -14,6 +14,7 @@ router.get("/trend", trend)
 router.get("/random", random)
 router.get("/sub",verifyToken, sub)
 router.get("/tags", getByTag)
+router.get("/langs", getByLanguage)
 router.get("/search", search)
 
 export default router;
