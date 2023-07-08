@@ -97,7 +97,7 @@ const AdminDashboard = () => {
                     <div className="text-lg leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
                       <i className="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
                       <CgProfile className="mr-1 inline" />
-                      @physicsWallah
+                      @tutor01
                     </div>
                     <div className="text-lg leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
                       <i className="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
