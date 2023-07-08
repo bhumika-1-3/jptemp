@@ -22,11 +22,23 @@ const VideoSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    prevUrl: {
+      type: String,
+      required: false,
+    },
+    nextUrl: {
+      type: String,
+      required: false,
+    },
     views: {
       type: Number,
       default: 0,
     },
     tags: {
+      type: [String],
+      default: [],
+    },
+    lang: {
       type: [String],
       default: [],
     },
