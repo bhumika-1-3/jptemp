@@ -14,7 +14,9 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useNavigate } from "react-router-dom";
+import { BsChevronBarDown } from "react-icons/bs";
 import { Link } from 'react-router-dom';
+import { Disclosure } from '@headlessui/react'
 import {
 	// Allowance
 	allAllowances,
@@ -54,6 +56,29 @@ var FormData = require('form-data');
 // var fs = require('fs');
 
 const Finance = () => {
+
+	const Tile = ({ data, setConveniences }) => {
+		const [selected, setSelected] = useState(false);
+		const select = () => {
+			if (selected) {
+				setConveniences((prev) => prev.filter((item) => item !== data));
+				setSelected(selected);
+			} else {
+				setConveniences((prev) => [...prev, data]);
+				setSelected(!selected);
+			}
+		};
+		return (
+			<div
+				onClick={select}
+				className={`flex px-4 py-2 gap-2 rounded outline shadow cursor-pointer bg-emerald-100 ${selected ? "outline-2" : "outline-0"
+					}`}
+			>
+				{/* <CiWifiOn className="text-xl" /> */}
+				<h1 className="">{data}</h1>
+			</div>
+		);
+	};
 	const [domain, setDomain] = useState();
 	const CardSmall = ({ idx, name, children, value }) => {
 		const { currentTheme, colors } = useSelector((state) => state.theme);
@@ -110,6 +135,7 @@ const Finance = () => {
 		name: "",
 		description: "",
 	});
+	const [conveniences, setConveniences] = useState([]);
 
 
 	const [sum, setsum] = useState([{
@@ -266,7 +292,7 @@ const Finance = () => {
 	// console.log(file);
 	const { currentTheme, colors } = useSelector((state) => state.theme)
 
-	
+
 	return (
 		<div>
 			<Tabs selectedTabClassName="tabs-styles">
@@ -278,7 +304,16 @@ const Finance = () => {
 					{/* <Tab className="tab-styles">Summary</Tab> */}
 				</TabList>
 				<TabPanel>
-				
+					<div className="flex flex-col gap-2 mt-4 p-4">
+						<h1 className="text-lg font-semibold">Select languages</h1>
+						<div className="flex flex-wrap gap-2">
+							<Tile data="English" setConveniences={setConveniences} />
+							<Tile data="Hindi" setConveniences={setConveniences} />
+							<Tile data="Marathi" setConveniences={setConveniences} />
+							<Tile data="Gujarati" setConveniences={setConveniences} />
+							<Tile data="Urdu" setConveniences={setConveniences} />
+						</div>
+					</div>
 					<div class="grid grid-cols-3 gap-3">
 						<div class="max-w-sm rounded overflow-hidden shadow-lg">
 
@@ -550,23 +585,27 @@ const Finance = () => {
 			</Tabs>
 			{/* Warning modals */}
 			{/* Allowance delete warning */}
-			{showAllowanceWarning && (
-				<WarningModal
-					close={closeAllowanceDeleteModalHandler}
-					submit={deleteAllowanceHandler}
-				/>
-			)}
+			{
+				showAllowanceWarning && (
+					<WarningModal
+						close={closeAllowanceDeleteModalHandler}
+						submit={deleteAllowanceHandler}
+					/>
+				)
+			}
 			{/* Deduction delete warning */}
-			{showDeductionWarning && (
-				<WarningModal
-					close={closeDeductionDeleteModalHandler}
-					submit={deleteDeductionHandler}
-				/>
-			)}
+			{
+				showDeductionWarning && (
+					<WarningModal
+						close={closeDeductionDeleteModalHandler}
+						submit={deleteDeductionHandler}
+					/>
+				)
+			}
 
 			{/* Loading spinner */}
 			{isLoading && <LoadingSpinner />}
-		</div>
+		</div >
 	);
 };
 
