@@ -12,11 +12,11 @@ const VideoSchema = new mongoose.Schema(
     },
     desc: {
       type: String,
-      required: true,
+      required: false,
     },
     imgUrl: {
       type: String,
-      required: true,
+      required: false,
     },
     videoUrl: {
       type: String,
@@ -50,6 +50,9 @@ const VideoSchema = new mongoose.Schema(
       type: [String],
       default: [],
     },
+    grade:{
+      type: Number,
+    }
   },
   { timestamps: true }
 );
