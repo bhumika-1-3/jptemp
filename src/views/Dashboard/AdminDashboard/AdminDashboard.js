@@ -31,13 +31,7 @@ const AdminDashboard = () => {
   // }, [dispatch]);
 
   const buttonClick = () => {
-    addNotification({
-      title: "Your coupon limit is about to expire",
-      subtitle: "Your coupon limit is about to expire",
-      message: "Renew to continue",
-      theme: "darkblue",
-      native: true, // when using native, your OS will handle theming.
-    });
+   
   };
   const { currentTheme, colors } = useSelector((state) => state.theme);
   const activeLink = `items-center text-sm capitalize py-2 px-2 my-1 font-semibold flex ${currentTheme ? colors.text[currentTheme].dark : "text-purple-700"

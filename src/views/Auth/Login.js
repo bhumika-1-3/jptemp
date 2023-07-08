@@ -75,19 +75,34 @@ export default function Login() {
     }
 
 
-    data.append('username', userInput.username);
-    data.append('email', userInput.email);
-    data.append('password', userInput.password);
+    var axios = require('axios');
+    var data = JSON.stringify({
+      "name": "bhumi",
+      "password": "123456"
+    });
+
     var config = {
       method: 'post',
-      url: 'http://127.0.0.1:8000/accounts/signup/',
+      url: 'http://localhost:8000/api/auth/signin',
+      headers: {
+        'Content-Type': 'application/json',
+      },
       data: data
     };
-    toast("User created");
+
+
+    toast("Successful!");
     axios(config)
       .then(function (response) {
         console.log(JSON.stringify(response.data));
-        navigate("/admin/dashboard/")
+        localStorage.setItem("role", response?.data?.role);
+        localStorage.setItem("dataall", response?.data);
+
+        if (response.data.isverified == false) {
+          toast("Verification Pending");
+        }
+        else
+          navigate("/admin/dashboard/")
       })
       .catch(function (error) {
         console.log(error);
