@@ -162,7 +162,6 @@ const Finance = () => {
 		console.log(config)
 		axios(config)
 			.then(function (response) {
-				console.log(response.data);
 				setVideos(response.data);
 			})
 			.catch(function (error) {
@@ -186,7 +185,6 @@ const Finance = () => {
 		console.log(config)
 		axios(config)
 			.then(function (response) {
-				console.log(response.data);
 				setTagVideos(response.data);
 			})
 			.catch(function (error) {
@@ -209,7 +207,6 @@ const Finance = () => {
 		console.log(config)
 		axios(config)
 			.then(function (response) {
-				console.log(response.data);
 				setLangVideos(response.data);
 			})
 			.catch(function (error) {
@@ -221,6 +218,9 @@ const Finance = () => {
 		getByLanguage();
 		getByTags();
 		getByQuery();
+		console.log(langVideos);
+		console.log(tagVideos);
+		console.log(videos);
 	}, [tags, langs, query])
 	const [allowanceId, setAllowanceId] = useState("");
 	const [showAllowanceWarning, setShowAllowanceWarning] = useState(false);
