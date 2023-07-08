@@ -86,8 +86,8 @@ export default function Sidebar() {
             to="/dashboard/">
             Genie.us
             <img
-              src={require("../../assets/img/genie_img-removebg-preview.png")}
-              style={{ height: "50px", width: "50px" }}
+              src="https://static.wixstatic.com/media/61a490_f032997414ae410ca1c6154b51c1e6b0~mv2.png/v1/crop/x_0,y_8,w_649,h_680/fill/w_89,h_94,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/JEETfinalLOGO.png"
+              style={{ height: "50px", width: "50px" , margin: "0 0 0 20px"}}
             />
           </Link>
 
