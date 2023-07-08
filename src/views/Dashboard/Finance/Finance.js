@@ -49,6 +49,7 @@ import Expenses from "./Expenses";
 import Cards from "./Cards";
 import Temp from "./tempCards";
 import Groups from "../Organization/Groups";
+import { forEach, forIn } from "lodash";
 var axios = require('axios');
 var FormData = require('form-data');
 // var fs = require('fs');
@@ -116,22 +117,85 @@ const Finance = () => {
 		"pdf_name": "Science",
 		"summary": "living outside, often in a tent"
 	}]);
-	useEffect(() => {
+
+	const [langVideos, setLangVideos] = useState([]);
+	const [tagVideos, setTagVideos] = useState([]);
+	const [videos, setVideos] = useState([]);
+
+	const [langs, setLangs] = useState(["English","Hindi"]);
+	const [tags, setTags] = useState(["Maths","Python"]);
+	const [query, setQuery] = useState("");
+
+	const getByQuery = () => {
+		var urlPath = 'http://127.0.0.1:8000/api/videos/search?q='
+		urlPath = urlPath + query
 		var config = {
 			method: 'get',
-			// url: 'https://95d5-2402-3a80-6ff-3e4d-c83b-8d43-d444-56e7.in.ngrok.io/openaiapp/getsummary/',
-
+			url: urlPath,
 		};
-
+		console.log(config)
 		axios(config)
 			.then(function (response) {
-				console.log(JSON.stringify(response.data));
-				setsum(JSON.stringify(response.data));
+				console.log(response.data);
+				setVideos(response.data);
 			})
 			.catch(function (error) {
 				console.log(error);
-			});
-	}, [])
+			}
+		);
+	}
+
+	const getByTags = () => {
+		var urlPath = 'http://127.0.0.1:8000/api/videos/tags?tags='
+		for (var i = 0; i < tags.length; i++) {
+			urlPath = urlPath + tags[i].toLowerCase() + ','
+		}
+		if(urlPath[urlPath.length-1] === ','){
+			urlPath = urlPath.substring(0, urlPath.length - 1);
+		}
+		var config = {
+			method: 'get',
+			url: urlPath,
+		};
+		console.log(config)
+		axios(config)
+			.then(function (response) {
+				console.log(response.data);
+				setTagVideos(response.data);
+			})
+			.catch(function (error) {
+				console.log(error);
+			}
+		);
+	}
+	const getByLanguage = () => {
+		var urlPath = 'http://127.0.0.1:8000/api/videos/langs?langs='
+		for (var i = 0; i < langs.length; i++) {
+			urlPath = urlPath + langs[i].toLowerCase() + ','
+		}
+		if(urlPath[urlPath.length-1] === ','){
+			urlPath = urlPath.substring(0, urlPath.length - 1);
+		}
+		var config = {
+			method: 'get',
+			url: urlPath,
+		};
+		console.log(config)
+		axios(config)
+			.then(function (response) {
+				console.log(response.data);
+				setLangVideos(response.data);
+			})
+			.catch(function (error) {
+				console.log(error);
+			}
+		);
+	}
+	useEffect(() => {
+		getByLanguage();
+		getByTags();
+		getByQuery();
+	}, [tags, langs, query])
 	const [allowanceId, setAllowanceId] = useState("");
 	const [showAllowanceWarning, setShowAllowanceWarning] = useState(false);
 	const [showDeductionWarning, setShowDeductionWarning] = useState(false);
@@ -264,8 +328,7 @@ const Finance = () => {
 		}
 	]
 	// console.log(file);
-	const { currentTheme, colors } = useSelector((state) => state.theme)
-
+	const { currentTheme, colors } = useSelector((state) => state.theme);
 	
 	return (
 		<div>
