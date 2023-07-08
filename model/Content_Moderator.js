@@ -4,12 +4,6 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
 
-    ewsid: {
-        type: String,
-    },
-    schoolname: {
-        type: String,
-    },
     password: {
         type: String,
         required: true,
@@ -24,4 +18,4 @@ const userSchema = new Schema({
 
 });
 
-module.exports = mongoose.model("User", userSchema)
+module.exports = mongoose.model("Content_moderator", userSchema)
