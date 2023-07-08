@@ -4,14 +4,14 @@ const UserNavCard = ({ name, email, logout }) => {
   return (
     <div className="px-2 py-1 rounded-md border borderColor bg-white dark:bg-purple_5 flex md:items-center md:flex-row flex-col">
       <div className="flex items-center mr-3">
-        <AiFillFire className="h-8 w-8 block mr-2 text-yellow-400 dark:text-slate-500" />
+        {/* <AiFillFire className="h-8 w-8 block mr-2 text-yellow-400 dark:text-slate-500" />
         <button
           data-tooltip-target="tooltip-default"
           data-tooltip-placement="bottom"
           className="text-slate-600"
           style={{ transform: "translateX(-10px)" }}>
           9
-        </button>
+        </button> */}
         <div
           id="tooltip-default"
           role="tooltip"
