@@ -19,8 +19,10 @@
     "@mediapipe/camera_utils": "^0.3.1640029074",
     "@mediapipe/drawing_utils": "^0.3.1675466124",
     "@mediapipe/pose": "^0.5.1635988162",
+
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.7",
+
     "@popperjs/core": "^2.11.6",
     "@react-spring/web": "^9.6.1",
     "@reduxjs/toolkit": "^1.8.1",
