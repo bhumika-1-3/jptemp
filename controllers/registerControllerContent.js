@@ -1,4 +1,4 @@
-const User = require("../model/User")
+const User = require("../model/Content_Moderator")
 // to encrypt passwords
 const bscrypt = require("bcrypt");
 
@@ -19,10 +19,10 @@ const registerNewUser = async (req, res) => {
 
         // create and store new user
         const result = await User.create({
-            "username": username,
             "password": hashpwd,
             "email": email,
-            "profile":profile
+            "username": username,
+            "role": "ContentCreator",
         });
 
         // ------------------other ---------------
