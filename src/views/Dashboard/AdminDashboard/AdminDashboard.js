@@ -72,7 +72,7 @@ const AdminDashboard = () => {
       {/* <BigText onMouseOver={buttonClick}>Profile</BigText> */}
       <div className="page">
         <button onMouseOver={buttonClick} className="p-2 text-3xl">
-          Profile
+          Content Creator
         </button>
       </div>
       <section className="pt-1 bg-blueGray-50">
@@ -85,7 +85,7 @@ const AdminDashboard = () => {
                     {/* <div className=""> */}
                     <img
                       alt="..."
-                      src="https://pbs.twimg.com/profile_images/3234971560/c024c9660698fd91133a417c4831810a_400x400.png"
+                      src="https://media.istockphoto.com/id/653952640/vector/p-logo-hipster-letter-black-and-white-monogram-simple-overlapping-minimalistic-style-ribbon.jpg?s=612x612&w=0&k=20&c=ggLqfidJSfwPFEqtyC78sJ4BtYUcJ7_lkWzCJDYPsh8="
                       className="shadow-xl rounded-full align-left float-left border-none h-56 w-56 mt-2"
                     />
                     {/* </div> */}
@@ -96,19 +96,19 @@ const AdminDashboard = () => {
                     </h3>
                     <div className="text-lg leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
                       <i className="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
-                      <GrLocation className="mr-1 inline" />
-                      Andheri,Maharashtra
+                      <CgProfile className="mr-1 inline" />
+                      @tutor01
                     </div>
                     <div className="text-lg leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
                       <i className="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
                       <RiProfileLine className="mr-1 inline" />
-                      ID - AAAAA0000A
+                       Grades
                     </div>
-                    <div className="text-lg leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
+                   {/* <div className="text-lg leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
                       <i className="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
                       <CgProfile className="mr-1 inline" />
                       Pan - ABCTY1234D
-                    </div>
+                    </div> */}
                   </div>
                 </div>
                 {/* <div className="w-full px-4 flex justify-center">
@@ -126,7 +126,7 @@ const AdminDashboard = () => {
                     <span className="text-3xl font-bold block uppercase tracking-wide text-blueGray-600">
                       220
                     </span>
-                    <span className="text-xl text-blueGray-400">Students</span>
+                    <span className="text-xl text-blueGray-400">Videos</span>
                   </div>
                   <div className="mr-5 p-3 text-center ml-7">
                     <span className="text-3xl font-bold block uppercase tracking-wide text-blueGray-600">
