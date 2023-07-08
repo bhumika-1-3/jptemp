@@ -23,7 +23,7 @@ import RenderIf from "../RenderIf/RenderIf"
 export default function Sidebar() {
 	const [collapseShow, setCollapseShow] = useState(false)
 
-	const { isAdmin } = useSelector((state) => state.auth)
+	// const { isAdmin } = useSelector((state) => state.auth)
 	const { currentTheme, colors } = useSelector((state) => state.theme)
 	const { profile } = useSelector((state) => state.employee)
 	const dispatch = useDispatch()
@@ -43,6 +43,7 @@ export default function Sidebar() {
 		currentTheme ? colors.bg[currentTheme].hover : "hover:bg-purple-300"
 	} dark:hover:bg-purple-900  hover:rounded-md duration-300`
 
+	// isAdmin = false;
 	useEffect(() => {
 		if (!isAdmin) {
 			dispatch(employeeProfile())
