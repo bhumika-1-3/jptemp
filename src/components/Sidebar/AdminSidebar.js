@@ -54,7 +54,7 @@ export default function Sidebar() {
     } dark:hover:bg-purple-900  hover:rounded-md duration-300`;
 
 
-  const role = "contentcreator"
+  const role = "user"
 
   return (
     <>
@@ -72,7 +72,7 @@ export default function Sidebar() {
             }}
             className="md:mt-4 md:ml-3 md:block inline-block text-left text-purple_1 dark:border-purple-700 dark:text-slate-200 ml-2  mr-0 whitespace-nowrap text-xl font-semibold"
             to="/dashboard/">
-            Genie.us
+            JEET
             <img
               src={require("../../assets/img/genie_img-removebg-preview.png")}
               style={{ height: "50px", width: "50px" }}
