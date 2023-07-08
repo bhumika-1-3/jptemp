@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "default": "erp-f23d3",
+    "testing": "testing-erp-1"
+  },
+  "targets": {}
+}
