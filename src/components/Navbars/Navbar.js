@@ -15,7 +15,7 @@ export default function Navbar() {
 		dispatch(logout())
 		window.location = "/auth/login"
 	}
-
+	const [counter, setCounter] = useState(0);
 	useEffect(() => {
 		const getAdmin = async () => {
 			const res = await axios.get("user/profile/")
@@ -27,6 +27,7 @@ export default function Navbar() {
 		}
 	}, [isAdmin])
 
+	
 	return (
 		<>
 			{/* Navbar */}

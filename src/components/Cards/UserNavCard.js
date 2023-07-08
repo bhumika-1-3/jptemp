@@ -1,6 +1,32 @@
 import { AiFillFire } from "react-icons/ai";
+import { useEffect, useState } from "react";
 import "flowbite";
 const UserNavCard = ({ name, email, logout }) => {
+  const [counter, setCounter] = useState(0);
+  const googleTranslateElementInit = () => {
+		new window.google.translate.TranslateElement(
+		  {
+			pageLanguage: "en",
+			includedLanguages: "hi,en,bn,fr,mr,gu,ur,te,ta,sd,sa,pa,or,mr,ml",
+			layout: window.google.translate.TranslateElement.InlineLayout.VERTICAL,
+		  },
+		  "google_translate_element"
+		);
+	  };
+	  useEffect(() => {
+		if (counter === 1) {
+		  var addScript = document.createElement("script");
+		  addScript.setAttribute(
+			"src",
+			"//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+		  );
+		  document.body.appendChild(addScript);
+		  window.googleTranslateElementInit = googleTranslateElementInit;
+		  setCounter(2);
+		}
+		setCounter(1);
+	  }, [counter]);
+
   return (
     <div className="px-2 py-1 rounded-md border borderColor bg-white dark:bg-purple_5 flex md:items-center md:flex-row flex-col">
       <div className="flex items-center mr-3">
@@ -24,7 +50,8 @@ const UserNavCard = ({ name, email, logout }) => {
             {!name.includes("undefined") ? name : "Name"}
           </h4>
           <span className="text-sm text-slate-400 font-normal -mt-1 block">
-            {email || "example@email.com"}
+            {/* {email || "example@email.com"} */}
+            <div id="google_translate_element"></div>
           </span>
         </div>
       </div>
