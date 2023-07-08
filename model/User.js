@@ -29,6 +29,20 @@ const UserSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    school: {
+      type: String,
+    },
+    grade: {
+      type: Number,
+    },
+    isverified: {
+      type: Boolean,
+      default: false,
+    },
+    role: {
+      type: String,
+      default: "user",
+    }
   },
   { timestamps: true }
 );
