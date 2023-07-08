@@ -95,8 +95,8 @@ export default function Login() {
     axios(config)
       .then(function (response) {
         console.log(JSON.stringify(response.data));
-        localStorage.setItem("role", response?.data?.role);
-        localStorage.setItem("dataall", response?.data);
+        localStorage.setItem("role", JSON.stringify(response?.data?.role));
+        localStorage.setItem("dataall", JSON.stringify(response?.data));
 
         if (response.data.isverified == false) {
           toast("Verification Pending");

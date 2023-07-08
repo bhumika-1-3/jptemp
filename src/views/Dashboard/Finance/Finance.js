@@ -266,61 +266,19 @@ const Finance = () => {
 	// console.log(file);
 	const { currentTheme, colors } = useSelector((state) => state.theme)
 
+	
 	return (
 		<div>
 			<Tabs selectedTabClassName="tabs-styles">
 				<TabList className="tab_list-styles ">
-					<Tab className="tab-styles">Audio Book recommendations</Tab>
-					<Tab className="tab-styles">Video recommendations</Tab>
+					<Tab className="tab-styles">By languages</Tab>
+					<Tab className="tab-styles">By Tags</Tab>
+					<Tab className="tab-styles">Trending</Tab>
+					<Tab className="tab-styles">Recommended</Tab>
 					{/* <Tab className="tab-styles">Summary</Tab> */}
 				</TabList>
 				<TabPanel>
-					<SectionHeader>
-
-						<Modal
-							title="Add new Notes"
-							activator={({ setShow }) => (
-								<Button Icon={HiPlusCircle} onClick={() => setShow(true)}>
-									Add
-								</Button>
-							)}>
-							<form onSubmit={createDeductionHandler}>
-								<InputTag
-									Icon={FiType}
-									label="Notes"
-									type="file"
-									// placeholder="Enter deduction name"
-									// value={newDeduction.name}
-									onChange={(e) =>
-										setFile(() => e.target.files[0])
-									}
-								/>
-								<InputTag
-									Icon={FiType}
-									label="name"
-									type="text"
-									placeholder="Enter topic name"
-									value={name}
-									onChange={(e) =>
-										setName(e.target.value)
-									}
-								/>
-								<Button type="submit"
-									Icon={HiPlusCircle}>
-									Create
-								</Button>
-							</form>
-						</Modal>
-					</SectionHeader>
-					<div className="grid md:grid-cols-4 gap-3">
-						{IMPROVEMENT_CHOICES.map((item, idx) => (
-							<TransitionBtoT key={idx}>
-								<CardSmall value={item.value} idx={idx + 1} name={item.value} />
-							</TransitionBtoT>
-						))}
-					</div>
-				</TabPanel>
-				<TabPanel>
+				
 					<div class="grid grid-cols-3 gap-3">
 						<div class="max-w-sm rounded overflow-hidden shadow-lg">
 
