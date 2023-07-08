@@ -53,20 +53,8 @@ export default function Sidebar() {
   const inActiveLink = `items-center text-sm capitalize py-2 px-2 my-1 font-semibold flex text-slate-700 dark:text-slate-300 ${currentTheme ? colors.bg[currentTheme].hover : "hover:bg-purple-300"
     } dark:hover:bg-purple-900  hover:rounded-md duration-300`;
 
-  // useEffect(() => {
-  //   if (!isAdmin) {
-  //     dispatch(employeeProfile());
-  //   }
-  //   const getAdmin = async () => {
-  //     const res = await axios.get("user/profile/");
-  //     const data = await res.data;
-  //     setAdminInfo(data?.data);
-  //   };
-  //   if (isAdmin) {
-  //     getAdmin();
-  //   }
-  // }, [dispatch, isAdmin]);
 
+  const role = "contentcreator"
 
   return (
     <>
@@ -162,18 +150,111 @@ export default function Sidebar() {
               <h6 className="max-w-fit text-slate-500 text-sm capitalize font-bold block px-2 pb-2 border-b-2 border-b-slate-400 dark:border-b-slate-500 mb-2 mt-4">
                 General
               </h6>
-              {/* <li key="organization">
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive ? activeLink : inActiveLink
-                  }
-                  onClick={() => setCollapseShow(false)}
-                  to="/admin/organizations">
-                  <RiCoupon3Line className="w-5 h-5 mr-2" />
-                  Coupons
-                </NavLink>
-              </li> */}
-              <li key="home">
+
+              {role == "moderator" ? (
+                <span>
+                  <li key="home">
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? activeLink : inActiveLink
+                      }
+                      onClick={() => setCollapseShow(false)}
+                      to="/admin/organizations">
+                      <MdVideoCall className="w-5 h-5 mr-2" />
+                      Review
+                    </NavLink>
+                  </li>
+                  <li key="finance">
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? activeLink : inActiveLink
+                      }
+                      onClick={() => setCollapseShow(false)}
+                      to="/admin/finance">
+                      <IoMdAnalytics className="w-5 h-5 mr-2" />
+                      Feedback
+                    </NavLink>
+                  </li>
+                </span>) : null}
+
+              {role == "contentcreator" ? (
+                <span>
+
+                  <li key="home">
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? activeLink : inActiveLink
+                      }
+                      onClick={() => setCollapseShow(false)}
+                      to="/admin/organizations">
+                      <MdVideoCall className="w-5 h-5 mr-2" />
+                      Upload
+                    </NavLink>
+                  </li>
+                  <li key="finance">
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? activeLink : inActiveLink
+                      }
+                      onClick={() => setCollapseShow(false)}
+                      to="/admin/organizations">
+                      <IoMdAnalytics className="w-5 h-5 mr-2" />
+                      Analysis
+                    </NavLink>
+                  </li>
+                </span>
+              ) : null}
+              {role == "user" ? (
+                <span>
+                  <li key="home">
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? activeLink : inActiveLink
+                      }
+                      onClick={() => setCollapseShow(false)}
+                      to="/admin/organizations">
+                      <MdVideoCall className="w-5 h-5 mr-2" />
+                      Content
+                    </NavLink>
+                  </li>
+                  <li key="finance">
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? activeLink : inActiveLink
+                      }
+                      onClick={() => setCollapseShow(false)}
+                      to="/admin/finance">
+                      <IoMdAnalytics className="w-5 h-5 mr-2" />
+                      Feedback
+                    </NavLink>
+                  </li>
+                  <li key="groups">
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? activeLink : inActiveLink
+                      }
+                      onClick={() => setCollapseShow(false)}
+                      to="/admin/group">
+                      <FaCalendarTimes className="w-5 h-5 mr-2" />
+                      Dashboard
+                    </NavLink>
+                  </li>
+                  <li key="users">
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? activeLink : inActiveLink
+                      }
+                      onClick={() => setCollapseShow(false)}
+                      to="/admin/users">
+                      <GrUpdate className="w-5 h-5 mr-2" />
+                      Extra
+                    </NavLink>
+                  </li>
+                </span>
+              )
+                : null
+              }
+              {/* <li key="home">
                 <NavLink
                   className={({ isActive }) =>
                     isActive ? activeLink : inActiveLink
@@ -216,7 +297,7 @@ export default function Sidebar() {
                   <GrUpdate className="w-5 h-5 mr-2" />
                   Update
                 </NavLink>
-              </li>
+              </li> */}
               {/* <li key="inventory">
                 <NavLink
                   className={({ isActive }) =>

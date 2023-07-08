@@ -161,7 +161,7 @@ const Organizations = () => {
 				onSelect={tabChangeHandler}>
 				<TabList className="tab_list-styles ">
 					<Tab className="tab-styles">General Chat</Tab>
-					<Tab className="tab-styles">SMS to parents</Tab>
+					<Tab className="tab-styles">Feedbacks</Tab>
 
 					{/* <Tab className="tab-styles">Department</Tab>
 					<Tab className="tab-styles">Designation</Tab>
