@@ -13,7 +13,8 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import {
 	// Allowance
 	allAllowances,
@@ -73,7 +74,7 @@ const Finance = () => {
 				.catch(function (error) {
 					console.log(error);
 				});
-		},)
+		})
 		return (
 			<div
 				style={{ cursor: "pointer" }}
@@ -322,58 +323,268 @@ const Finance = () => {
 				<TabPanel>
 					<div class="grid grid-cols-3 gap-3">
 						<div class="max-w-sm rounded overflow-hidden shadow-lg">
-							<div class="relative overflow-hidden pb-9/16">
-								<iframe width="560" height="315" src="https://www.youtube.com/embed/gzALIXcY4pg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+							<div class="aspect-video">
+								<iframe
+									class="w-full h-full"
+									src="https://www.youtube.com/embed/gzALIXcY4pg"
+									frameborder="0"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+									allowFullScreen>
+								</iframe>
 							</div>
+
+							{/*	<div class="relative overflow-hidden pb-9/16 ">
+								<iframe  src="https://www.youtube.com/embed/gzALIXcY4pg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+							</div>*/}
 							<div class="px-6 py-4">
 								<div class="font-bold text-xl mb-2">American History</div>
 								<p class="text-gray-700 text-base">
 									About American History
 								</p>
+							</div>
+							<div>
+								<Accordion>
+									<AccordionSummary
+										expandIcon={<ExpandMoreIcon />}
+										aria-controls="panel1a-content"
+										id="panel1a-header"
+									>
+										<Typography>Previous</Typography>
+									</AccordionSummary>
+									<AccordionDetails>
+										<Typography>
+											<div>
+												<a href={'https://www.youtube.com/embed/gzALIXcY4pg'}>Link</a>
+											</div>
+										</Typography>
+									</AccordionDetails>
+								</Accordion>
+								<Accordion>
+									<AccordionSummary
+										expandIcon={<ExpandMoreIcon />}
+										aria-controls="panel2a-content"
+										id="panel2a-header"
+									>
+										<Typography>Next</Typography>
+									</AccordionSummary>
+									<AccordionDetails>
+										<Typography>
+											<div>
+												<a href={'https://www.youtube.com/embed/gzALIXcY4pg'}>Link</a>
+											</div>
+										</Typography>
+									</AccordionDetails>
+								</Accordion>
+
 							</div>
 						</div>
 						<div class="max-w-sm rounded overflow-hidden shadow-lg">
-							<div class="relative overflow-hidden pb-9/16">
-								<iframe width="560" height="315" src="https://www.youtube.com/embed/gzALIXcY4pg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+							<div class="aspect-video">
+								<iframe
+									class="w-full h-full"
+									src="https://www.youtube.com/embed/gzALIXcY4pg"
+									frameborder="0"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+									allowFullScreen>
+								</iframe>
 							</div>
 							<div class="px-6 py-4">
 								<div class="font-bold text-xl mb-2">American History</div>
 								<p class="text-gray-700 text-base">
 									About American History
 								</p>
+							</div>
+							<div>
+								<Accordion>
+									<AccordionSummary
+										expandIcon={<ExpandMoreIcon />}
+										aria-controls="panel1a-content"
+										id="panel1a-header"
+									>
+										<Typography>Previous</Typography>
+									</AccordionSummary>
+									<AccordionDetails>
+										<Typography>
+											<div>
+												<a href={'https://www.youtube.com/embed/gzALIXcY4pg'}>Link</a>
+											</div>
+										</Typography>
+									</AccordionDetails>
+								</Accordion>
+								<Accordion>
+									<AccordionSummary
+										expandIcon={<ExpandMoreIcon />}
+										aria-controls="panel2a-content"
+										id="panel2a-header"
+									>
+										<Typography>Next</Typography>
+									</AccordionSummary>
+									<AccordionDetails>
+										<Typography>
+											<div>
+												<a href={'https://www.youtube.com/embed/gzALIXcY4pg'}>Link</a>
+											</div>
+										</Typography>
+									</AccordionDetails>
+								</Accordion>
+
 							</div>
 						</div>
 						<div class="max-w-sm rounded overflow-hidden shadow-lg">
-							<div class="relative overflow-hidden pb-9/16">
-								<iframe width="560" height="315" src="https://www.youtube.com/embed/gzALIXcY4pg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+							<div class="aspect-video">
+								<iframe
+									class="w-full h-full"
+									src="https://www.youtube.com/embed/gzALIXcY4pg"
+									frameborder="0"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+									allowFullScreen>
+								</iframe>
 							</div>
 							<div class="px-6 py-4">
 								<div class="font-bold text-xl mb-2">American History</div>
 								<p class="text-gray-700 text-base">
 									About American History
 								</p>
+							</div>
+							<div>
+								<Accordion>
+									<AccordionSummary
+										expandIcon={<ExpandMoreIcon />}
+										aria-controls="panel1a-content"
+										id="panel1a-header"
+									>
+										<Typography>Previous</Typography>
+									</AccordionSummary>
+									<AccordionDetails>
+										<Typography>
+											<div>
+												<a href={'https://www.youtube.com/embed/gzALIXcY4pg'}>Link</a>
+											</div>
+										</Typography>
+									</AccordionDetails>
+								</Accordion>
+								<Accordion>
+									<AccordionSummary
+										expandIcon={<ExpandMoreIcon />}
+										aria-controls="panel2a-content"
+										id="panel2a-header"
+									>
+										<Typography>Next</Typography>
+									</AccordionSummary>
+									<AccordionDetails>
+										<Typography>
+											<div>
+												<a href={'https://www.youtube.com/embed/gzALIXcY4pg'}>Link</a>
+											</div>
+										</Typography>
+									</AccordionDetails>
+								</Accordion>
+
 							</div>
 						</div>
 						<div class="max-w-sm rounded overflow-hidden shadow-lg">
-							<div class="relative overflow-hidden pb-9/16">
-								<iframe width="560" height="315" src="https://www.youtube.com/embed/gzALIXcY4pg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+							<div class="aspect-video">
+								<iframe
+									class="w-full h-full"
+									src="https://www.youtube.com/embed/gzALIXcY4pg"
+									frameborder="0"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+									allowFullScreen>
+								</iframe>
 							</div>
 							<div class="px-6 py-4">
 								<div class="font-bold text-xl mb-2">American History</div>
 								<p class="text-gray-700 text-base">
 									About American History
 								</p>
+							</div>
+							<div>
+								<Accordion>
+									<AccordionSummary
+										expandIcon={<ExpandMoreIcon />}
+										aria-controls="panel1a-content"
+										id="panel1a-header"
+									>
+										<Typography>Previous</Typography>
+									</AccordionSummary>
+									<AccordionDetails>
+										<Typography>
+											<div>
+												<a href={'https://www.youtube.com/embed/gzALIXcY4pg'}>Link</a>
+											</div>
+										</Typography>
+									</AccordionDetails>
+								</Accordion>
+								<Accordion>
+									<AccordionSummary
+										expandIcon={<ExpandMoreIcon />}
+										aria-controls="panel2a-content"
+										id="panel2a-header"
+									>
+										<Typography>Next</Typography>
+									</AccordionSummary>
+									<AccordionDetails>
+										<Typography>
+											<div>
+												<a href={'https://www.youtube.com/embed/gzALIXcY4pg'}>Link</a>
+											</div>
+										</Typography>
+									</AccordionDetails>
+								</Accordion>
+
 							</div>
 						</div>
 						<div class="max-w-sm rounded overflow-hidden shadow-lg">
-							<div class="relative overflow-hidden pb-9/16">
-								<iframe width="560" height="315" src="https://www.youtube.com/embed/gzALIXcY4pg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+							<div class="aspect-video">
+								<iframe
+									class="w-full h-full"
+									src="https://www.youtube.com/embed/gzALIXcY4pg"
+									frameborder="0"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+									allowFullScreen>
+								</iframe>
 							</div>
 							<div class="px-6 py-4">
 								<div class="font-bold text-xl mb-2">American History</div>
 								<p class="text-gray-700 text-base">
 									About American History
 								</p>
+							</div>
+							<div>
+								<Accordion>
+									<AccordionSummary
+										expandIcon={<ExpandMoreIcon />}
+										aria-controls="panel1a-content"
+										id="panel1a-header"
+									>
+										<Typography>Previous</Typography>
+									</AccordionSummary>
+									<AccordionDetails>
+										<Typography>
+											<div>
+												<a href={'https://www.youtube.com/embed/gzALIXcY4pg'}>Google</a>
+											</div>
+										</Typography>
+									</AccordionDetails>
+								</Accordion>
+								<Accordion>
+									<AccordionSummary
+										expandIcon={<ExpandMoreIcon />}
+										aria-controls="panel2a-content"
+										id="panel2a-header"
+									>
+										<Typography>Next</Typography>
+									</AccordionSummary>
+									<AccordionDetails>
+										<Typography>
+											<div>
+												<a href={'https://www.youtube.com/embed/gzALIXcY4pg'}>Google</a>
+											</div>
+										</Typography>
+									</AccordionDetails>
+								</Accordion>
+
 							</div>
 						</div>
 					</div>
